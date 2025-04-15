@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<obiplugin xmlns="http://plugin.frameworks.tech.bi.oracle" id="com-company-invoices" name="com-company-invoices" version="1.0.0.1744740776033" optimized="false" optimizable="true" category="customviz" categoryVersion="1.0.0.1744740776033">
+    <resources>
+        <resource type="script" id="invoices" path="invoices.js"/>
+        <resource type="script" id="invoicesdatamodelhandler" path="invoicesdatamodelhandler.js"/>
+        <resource type="binary" id="invoicesIcon" path="invoicesIcon.png"/>
+        <resource type="css" id="invoicesstyles" path="invoicesstyles.css"/>
+        <resource-folder id="nls" path="nls" optimizable="true">
+            <extensions>
+                <extension name="js" resource-type="script"/>
+            </extensions>
+        </resource-folder>
+        <resource type="binary" id="Outstanding Invoices " path="Outstanding Invoices .csv"/>
+    </resources>
+    <extensions>
+        <extension id="com.company.invoices" point-id="oracle.bi.tech.plugin.visualization" version="1.0.0">
+            <configuration>{"host":{"script":{"module":"com-company-invoices/invoices","method":"createClientComponent"},"vizSettings":{"_version":"1.0.0","viewConfig":{"viz:chart":{"type":"com.company.invoices","dataValues":true}}}},"resourceBundle":"com-company-invoices/nls/messages","properties":{"displayName":{"key":"INVOICES_DISPLAY_NAME","default":"Invoices Plugin"},"shortDisplayName":{"key":"INVOICES_SHORT_DISPLAY_NAME","default":"Invoices Plugin"},"category":{"key":"INVOICES_CATEGORY","default":"Invoices Plugin"},"customSettings":{},"categoryOrder":500,"icon":"invoicesIcon","dataModelHandler":"com.company.invoices.visualizationDatamodelHandler","dataModelGovernor":{"dm1":{"rows":10000,"columns":5000}},"isEmbeddable":false,"isMarkingSupported":false}}</configuration>
+        </extension>
+        <extension id="com.company.invoices.visualizationDatamodelHandler" point-id="oracle.bi.tech.plugin.visualizationDatamodelHandler" version="1.0.0">
+            <configuration>{"module":"com-company-invoices/invoicesdatamodelhandler","method":"getHandler","config":{"vizPreference":50,"measureLabelConfig":{"supportedEdges":["color","detail","size"],"defaultEdge":"color","visibility":"hidden"},"edgeConfig":{"measures":{"contentType":"measures","global":{"minCount":0,"maxCount":5,"priority":10},"ui":{"customName":{"key":"INVOICES_ITEM_SIZE","default":"Item Size"}}},"row":{"contentType":"mixed","global":{"priority":1,"preferredMax":5},"ui":{"customName":{"key":"INVOICES_ROW_LABEL","default":"Invoices Plugin Row"}},"categorical":{"functionalInfo":["inner","row","categoricalType"]}},"color":{"contentType":"both","global":{"preferredMin":1,"preferredMax":10,"priority":7},"measures":{"maxCount":10},"categorical":{"functionalInfo":["inner","col","categoricalType"]}},"size":{"contentType":"measures","global":{"maxCount":1,"preferredMax":10,"priority":10}},"glyph":"none","detail":"none"}}}</configuration>
+        </extension>
+    </extensions>
+</obiplugin>

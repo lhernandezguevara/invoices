@@ -1,0 +1,64 @@
+
+{
+    "module" : "com-company-invoices/invoicesdatamodelhandler",
+    "method" : "getHandler",
+    "config" : {
+        "vizPreference" : 50 ,
+        "measureLabelConfig": {
+           "supportedEdges": ["color","detail","size"],
+           "defaultEdge": "color",
+           "visibility": "hidden"
+        },
+        "edgeConfig" : {
+            "measures" : {
+                "contentType": "measures",
+                "global": {
+                    "minCount": 0,
+                    "maxCount": 5,
+                    "priority": 10
+                },
+                "ui": {
+                    "customName": { "key": "INVOICES_ITEM_SIZE", "default": "Item Size" }
+                }
+            },
+            "row"    : {
+                "contentType": "mixed",
+                "global": {
+                    "priority": 1,
+                    "preferredMax": 5
+                },
+                "ui": {
+                    "customName": { "key": "INVOICES_ROW_LABEL", "default": "Invoices Plugin Row" }
+                },
+                "categorical": {
+                    "functionalInfo": ["inner", "row", "categoricalType"]
+                }
+            },
+            "color"  : {
+               "contentType": "both",
+               "global": {
+                   "preferredMin": 1,
+                   "preferredMax": 10,
+                   "priority": 7
+               },
+               "measures": {
+                   "maxCount": 10
+               },
+               "categorical": {
+                  "functionalInfo": ["inner", "col", "categoricalType"]
+               }
+            },
+            "size": {
+                "contentType": "measures",
+                "global": {
+                    "maxCount": 1,
+                    "preferredMax": 10,
+                    "priority": 10
+                }
+            },
+            "glyph" : "none",
+            "detail" : "none"
+        }
+    }
+}
+            

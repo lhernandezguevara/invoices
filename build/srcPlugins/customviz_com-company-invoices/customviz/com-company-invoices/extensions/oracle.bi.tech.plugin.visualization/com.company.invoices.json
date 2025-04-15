@@ -1,0 +1,32 @@
+
+{
+   "host": {
+      "script": {
+            "module" : "com-company-invoices/invoices",
+            "method" : "createClientComponent"
+      },
+      "vizSettings": {
+         "_version":"1.0.0",
+         "viewConfig":{
+            "viz:chart":{
+               "type": "com.company.invoices",
+               "dataValues": true
+            }
+         }
+      }
+   },
+   "resourceBundle": "com-company-invoices/nls/messages",
+   "properties": {
+     "displayName": { "key" : "INVOICES_DISPLAY_NAME", "default" : "Invoices Plugin" },
+     "shortDisplayName": { "key" : "INVOICES_SHORT_DISPLAY_NAME", "default" : "Invoices Plugin" },
+     "category": {"key":"INVOICES_CATEGORY", "default":"Invoices Plugin"},
+     "customSettings":{},
+     "categoryOrder": 500,
+     "icon": "invoicesIcon",
+    "dataModelHandler" : "com.company.invoices.visualizationDatamodelHandler",
+    "dataModelGovernor": { "dm1": { "rows": 10000, "columns": 5000 } },
+    "isEmbeddable": false,
+     "isMarkingSupported": false
+   }
+}
+                
